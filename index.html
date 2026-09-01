@@ -24,26 +24,33 @@
       width: 100%;
       max-width: 430px;
       min-height: 100vh;
-      margin: 0 auto;
-      padding: 35px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      margin: auto;
+      padding: 25px 20px;
     }
 
-    .top {
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    /* ГЛАВНАЯ */
+
+    .hero {
       text-align: center;
-      padding-top: 40px;
+      padding-top: 45px;
     }
 
     .logo {
-      font-size: 58px;
+      font-size: 64px;
       margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 34px;
-      margin-bottom: 14px;
+      font-size: 36px;
+      margin-bottom: 12px;
     }
 
     .subtitle {
@@ -52,7 +59,7 @@
       line-height: 1.5;
     }
 
-    .card {
+    .intro-card {
       background: #191c25;
       border-radius: 24px;
       padding: 25px;
@@ -60,77 +67,281 @@
       text-align: center;
     }
 
-    .card-title {
+    .intro-card h2 {
       font-size: 21px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .card-text {
+    .intro-card p {
       color: #a8adb8;
       line-height: 1.5;
-      font-size: 15px;
     }
 
-    .button {
+    .main-button,
+    .back-button {
       width: 100%;
       border: none;
       border-radius: 18px;
       padding: 18px;
-      background: white;
-      color: #111111;
+      margin-top: 25px;
       font-size: 17px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .button:active {
-      transform: scale(0.98);
+    .main-button {
+      background: white;
+      color: #111;
     }
 
-    .bottom {
-      color: #777d89;
+    .back-button {
+      background: #191c25;
+      color: white;
+    }
+
+    .small-text {
       text-align: center;
+      color: #777d89;
       font-size: 13px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
-    .lesson {
-      display: none;
-      text-align: left;
+    /* СПИСОК УРОКОВ */
+
+    .header {
+      padding-top: 20px;
+      margin-bottom: 25px;
     }
 
-    .lesson.active {
-      display: block;
+    .header h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
     }
 
-    .lesson h2 {
+    .header p {
+      color: #a8adb8;
+    }
+
+    .lesson-card {
+      background: #191c25;
+      border-radius: 22px;
+      padding: 20px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .lesson-card:active {
+      transform: scale(0.97);
+    }
+
+    .lesson-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .lesson-number {
+      color: #8f95ff;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .lesson-card h3 {
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .lesson-card p {
+      color: #8f95a3;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* УРОК */
+
+    .lesson-page {
+      padding-top: 20px;
+    }
+
+    .lesson-page .big-icon {
+      font-size: 65px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .lesson-page h2 {
       font-size: 28px;
       margin-bottom: 18px;
     }
 
-    .lesson p {
-      color: #a8adb8;
+    .lesson-page p {
+      color: #b5bac5;
       font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      line-height: 1.65;
+      margin-bottom: 18px;
     }
 
-    .back {
-      margin-top: 20px;
+    .info-box {
       background: #191c25;
-      color: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin: 18px 0;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ВИЗУАЛЬНАЯ СХЕМА СВЕЧЕЙ */
+
+    .chart {
+      background: #191c25;
+      border-radius: 22px;
+      padding: 20px;
+      margin: 20px 0;
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .candles {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      height: 130px;
+    }
+
+    .candle {
+      width: 25px;
+      position: relative;
+      border-radius: 3px;
+    }
+
+    .candle::before,
+    .candle::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      background: #aaa;
+      left: 11px;
+    }
+
+    .candle::before {
+      height: 25px;
+      top: -25px;
+    }
+
+    .candle::after {
+      height: 25px;
+      bottom: -25px;
+    }
+
+    .green {
+      height: 70px;
+      background: #45d483;
+    }
+
+    .red {
+      height: 50px;
+      background: #ff5d6c;
+    }
+
+    /* ГРАФИК */
+
+    .line-chart {
+      position: relative;
+      width: 100%;
+      height: 130px;
+    }
+
+    .line {
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      top: 50%;
+      height: 4px;
+      background: white;
+      transform: rotate(-15deg);
+      border-radius: 10px;
+    }
+
+    .line::after {
+      content: "";
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      border-right: 4px solid white;
+      border-top: 4px solid white;
+      right: 0;
+      top: -16px;
+      transform: rotate(45deg);
+    }
+
+    /* УРОВНИ */
+
+    .levels {
+      height: 180px;
+      position: relative;
+      background: #191c25;
+      border-radius: 22px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .support,
+    .resistance {
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      border-top: 2px dashed;
+      padding-top: 7px;
+      font-size: 12px;
+    }
+
+    .support {
+      bottom: 30px;
+      color: #45d483;
+    }
+
+    .resistance {
+      top: 30px;
+      color: #ff5d6c;
+    }
+
+    .price {
+      position: absolute;
+      left: 30px;
+      right: 30px;
+      top: 60px;
+      height: 70px;
+      border-bottom: 3px solid #aaa;
+      transform: rotate(-8deg);
+    }
+
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 31px;
+      }
+
+      .lesson-page h2 {
+        font-size: 25px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="app">
+<div class="app">
 
-    <!-- ГЛАВНАЯ -->
+  <!-- ГЛАВНАЯ -->
 
-    <div class="top" id="home">
+  <section class="screen active" id="home">
+
+    <div class="hero">
 
       <div class="logo">📈</div>
 
@@ -141,86 +352,477 @@
         простыми словами.
       </p>
 
-      <div class="card">
+      <div class="intro-card">
 
-        <div class="card-title">
-          Начнём с самого начала
-        </div>
+        <h2>Начнём с самого начала</h2>
 
-        <p class="card-text">
+        <p>
           Свечи, графики, движение цены,
-          анализ и многое другое.
+          тренды, уровни и основы анализа.
         </p>
 
       </div>
 
     </div>
 
-    <div id="homeButtons">
+    <button class="main-button" onclick="showLessons()">
+      Начать обучение →
+    </button>
 
-      <button class="button" onclick="startCourse()">
-        Начать обучение →
-      </button>
+    <div class="small-text">
+      Обучение с нуля
+    </div>
 
-      <div class="bottom">
-        Обучение с нуля
+  </section>
+
+
+  <!-- СПИСОК УРОКОВ -->
+
+  <section class="screen" id="lessons">
+
+    <div class="header">
+
+      <h2>AVA Academy</h2>
+
+      <p>
+        Выбери урок и начни обучение
+      </p>
+
+    </div>
+
+
+    <div class="lesson-card" onclick="openLesson(1)">
+
+      <div class="lesson-icon">🕯️</div>
+
+      <div class="lesson-number">
+        УРОК 1
+      </div>
+
+      <h3>
+        Японские свечи
+      </h3>
+
+      <p>
+        Что показывает свеча и как читать
+        её основные элементы.
+      </p>
+
+    </div>
+
+
+    <div class="lesson-card" onclick="openLesson(2)">
+
+      <div class="lesson-icon">📊</div>
+
+      <div class="lesson-number">
+        УРОК 2
+      </div>
+
+      <h3>
+        Как читать график
+      </h3>
+
+      <p>
+        Цена, время и движение рынка.
+      </p>
+
+    </div>
+
+
+    <div class="lesson-card" onclick="openLesson(3)">
+
+      <div class="lesson-icon">📈</div>
+
+      <div class="lesson-number">
+        УРОК 3
+      </div>
+
+      <h3>
+        Тренд
+      </h3>
+
+      <p>
+        Восходящий, нисходящий и боковой рынок.
+      </p>
+
+    </div>
+
+
+    <div class="lesson-card" onclick="openLesson(4)">
+
+      <div class="lesson-icon">🔄</div>
+
+      <div class="lesson-number">
+        УРОК 4
+      </div>
+
+      <h3>
+        Поддержка и сопротивление
+      </h3>
+
+      <p>
+        Как находить важные области на графике.
+      </p>
+
+    </div>
+
+
+    <div class="lesson-card" onclick="openLesson(5)">
+
+      <div class="lesson-icon">🧠</div>
+
+      <div class="lesson-number">
+        УРОК 5
+      </div>
+
+      <h3>
+        Основы анализа
+      </h3>
+
+      <p>
+        Как смотреть на рынок комплексно.
+      </p>
+
+    </div>
+
+
+    <button class="back-button" onclick="goHome()">
+      ← На главную
+    </button>
+
+  </section>
+
+
+  <!-- УРОК 1 -->
+
+  <section class="screen lesson-page" id="lesson1">
+
+    <div class="big-icon">
+      🕯️
+    </div>
+
+    <h2>
+      Урок 1. Японские свечи
+    </h2>
+
+    <p>
+      Японская свеча показывает,
+      как изменилась цена за определённый
+      промежуток времени.
+    </p>
+
+    <div class="chart">
+
+      <div class="candles">
+
+        <div class="candle green"></div>
+
+        <div class="candle red"></div>
+
+        <div class="candle green"></div>
+
+        <div class="candle red"></div>
+
       </div>
 
     </div>
 
+    <div class="info-box">
 
-    <!-- ПЕРВЫЙ УРОК -->
+      <strong>🟢 Растущая свеча</strong>
 
-    <div class="lesson" id="lesson1">
-
-      <div class="logo">🕯️</div>
-
-      <h2>Урок 1. Что такое свечи?</h2>
-
-      <p>
-        Свеча показывает, как изменилась цена
-        за определённый промежуток времени.
-      </p>
-
-      <p>
-        У каждой свечи есть четыре главных значения:
-        цена открытия, цена закрытия, максимум и минимум.
-      </p>
-
-      <p>
-        Если цена закрылась выше открытия —
-        свеча считается растущей.
-      </p>
-
-      <p>
-        Если цена закрылась ниже открытия —
-        свеча считается падающей.
-      </p>
-
-      <button class="button back" onclick="goHome()">
-        ← Вернуться
-      </button>
+      Цена закрытия выше цены открытия.
 
     </div>
 
-  </div>
+    <div class="info-box">
+
+      <strong>🔴 Падающая свеча</strong>
+
+      Цена закрытия ниже цены открытия.
+
+    </div>
+
+    <p>
+      У свечи также есть верхняя и нижняя тени.
+      Они показывают максимальную и минимальную
+      цену за выбранный период.
+    </p>
+
+    <button class="back-button" onclick="showLessons()">
+      ← Все уроки
+    </button>
+
+  </section>
 
 
-  <script>
+  <!-- УРОК 2 -->
 
-    function startCourse() {
-      document.getElementById("home").style.display = "none";
-      document.getElementById("homeButtons").style.display = "none";
-      document.getElementById("lesson1").classList.add("active");
-    }
+  <section class="screen lesson-page" id="lesson2">
 
-    function goHome() {
-      document.getElementById("lesson1").classList.remove("active");
-      document.getElementById("home").style.display = "block";
-      document.getElementById("homeButtons").style.display = "block";
-    }
+    <div class="big-icon">
+      📊
+    </div>
 
-  </script>
+    <h2>
+      Урок 2. Как читать график
+    </h2>
+
+    <p>
+      График показывает изменение цены
+      во времени.
+    </p>
+
+    <div class="chart">
+
+      <div class="line-chart">
+
+        <div class="line"></div>
+
+      </div>
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>📌 Цена</strong>
+
+      Показывает стоимость инструмента
+      в определённый момент времени.
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>⏱️ Время</strong>
+
+      Показывает, когда происходило
+      движение цены.
+
+    </div>
+
+    <p>
+      Сначала учись видеть общее движение,
+      а уже потом обращай внимание
+      на отдельные свечи.
+    </p>
+
+    <button class="back-button" onclick="showLessons()">
+      ← Все уроки
+    </button>
+
+  </section>
+
+
+  <!-- УРОК 3 -->
+
+  <section class="screen lesson-page" id="lesson3">
+
+    <div class="big-icon">
+      📈
+    </div>
+
+    <h2>
+      Урок 3. Тренд
+    </h2>
+
+    <p>
+      Тренд — это основное направление
+      движения цены.
+    </p>
+
+    <div class="info-box">
+
+      <strong>📈 Восходящий тренд</strong>
+
+      Цена в целом движется вверх.
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>📉 Нисходящий тренд</strong>
+
+      Цена в целом движется вниз.
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>↔️ Боковое движение</strong>
+
+      Цена движется в определённом диапазоне.
+
+    </div>
+
+    <button class="back-button" onclick="showLessons()">
+      ← Все уроки
+    </button>
+
+  </section>
+
+
+  <!-- УРОК 4 -->
+
+  <section class="screen lesson-page" id="lesson4">
+
+    <div class="big-icon">
+      🔄
+    </div>
+
+    <h2>
+      Урок 4. Уровни
+    </h2>
+
+    <p>
+      Поддержка и сопротивление помогают
+      определить области, где цена раньше
+      реагировала.
+    </p>
+
+    <div class="levels">
+
+      <div class="resistance">
+        СОПРОТИВЛЕНИЕ
+      </div>
+
+      <div class="price"></div>
+
+      <div class="support">
+        ПОДДЕРЖКА
+      </div>
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>🟢 Поддержка</strong>
+
+      Область, где цена раньше находила
+      покупателей.
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>🔴 Сопротивление</strong>
+
+      Область, где цена раньше встречала
+      продавцов.
+
+    </div>
+
+    <button class="back-button" onclick="showLessons()">
+      ← Все уроки
+    </button>
+
+  </section>
+
+
+  <!-- УРОК 5 -->
+
+  <section class="screen lesson-page" id="lesson5">
+
+    <div class="big-icon">
+      🧠
+    </div>
+
+    <h2>
+      Урок 5. Основы анализа
+    </h2>
+
+    <p>
+      Анализ рынка — это не попытка угадать
+      будущее.
+    </p>
+
+    <p>
+      Сначала изучай движение цены,
+      затем тренд, уровни и поведение свечей.
+    </p>
+
+    <div class="info-box">
+
+      <strong>🧠 Главное</strong>
+
+      Не существует гарантированно правильного
+      сигнала. Торговля связана с риском.
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>📚 Следующий шаг</strong>
+
+      После базовых уроков можно изучать
+      технический анализ и управление рисками.
+
+    </div>
+
+    <button class="back-button" onclick="showLessons()">
+      ← Все уроки
+    </button>
+
+  </section>
+
+</div>
+
+
+<script>
+
+  function hideAll() {
+
+    document
+      .querySelectorAll(".screen")
+      .forEach(function(screen) {
+
+        screen.classList.remove("active");
+
+      });
+
+  }
+
+
+  function showLessons() {
+
+    hideAll();
+
+    document
+      .getElementById("lessons")
+      .classList.add("active");
+
+    window.scrollTo(0, 0);
+
+  }
+
+
+  function goHome() {
+
+    hideAll();
+
+    document
+      .getElementById("home")
+      .classList.add("active");
+
+    window.scrollTo(0, 0);
+
+  }
+
+
+  function openLesson(number) {
+
+    hideAll();
+
+    document
+      .getElementById("lesson" + number)
+      .classList.add("active");
+
+    window.scrollTo(0, 0);
+
+  }
+
+</script>
 
 </body>
 </html>
